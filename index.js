@@ -63,6 +63,15 @@ program
           const packCont = fs.readFileSync(packagePath, { encoding: 'utf-8' })
           const template = handlebars.compile(packCont)
           fs.writeFileSync(packagePath, template(answers))
+          // 追加忽略文件
+          fs.open(path.resolve(process.cwd(), proName, '.gitignore'), 'a', (err, fd) => {
+            if (err) {
+              return
+            }
+            fs.writeFileSync(fd, `\n${proName}\n`, {encoding: 'utf8'})
+            fs.close(fd)
+          })
+
           console.log('-'.repeat(88))
           console.log('cd %s', proName)
           console.log('npm install')
