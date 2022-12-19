@@ -1,10 +1,10 @@
 {
-  "name": "persagy-vite-cli",
+  "name": "persagy-generator-cli",
   "bin": {
     "persagy-g": "index.js"
   },
-  "version": "1.0.2",
-  "description": "persagy vite+vue3+pinia+vue-router project generator",
+  "version": "1.0.3",
+  "description": "persagy vue3+pinia+vue-router project generator",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -23,6 +23,7 @@
     "chalk": "^4.1.2",
     "commander": "^9.4.1",
     "download-git-repo": "^3.0.2",
+    "execa": "^5.1.1",
     "git-clone": "^0.2.0",
     "handlebars": "^4.7.7",
     "inquirer": "^5.2.0",
