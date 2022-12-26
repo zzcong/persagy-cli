@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-/** @format */
 
 const fs = require('fs')
 const path = require('path')
@@ -56,6 +55,7 @@ program
       ])
       .then(answers => {
         spinner.start()
+        const projectPath = path.resolve(process.cwd(), proName)
         downTemp({
           url: `direct:${opts.url}#${opts.type}`,
           dir: path.resolve(process.cwd(), proName),
@@ -65,7 +65,7 @@ program
               return
             }
             // 写入项目基本信息
-            const packagePath = path.resolve(process.cwd(), proName, 'package.json')
+            const packagePath = path.resolve(projectPath, 'package.json')
             const packCont = fs.readFileSync(packagePath, { encoding: 'utf-8' })
             fs.writeFileSync(packagePath, replacePck(packCont, answers))
             // 追加忽略文件
@@ -88,12 +88,13 @@ program
               })
             }
             // 初始化git
-            await gitInit(proName)
+            await gitInit(projectPath)
+
             spinner.succeed('PERSAGTY-VITE：下载成功！')
             console.log('-'.repeat(88))
             console.log('cd %s', proName)
-            console.log('npm install')
-            console.log('npm run dev')
+            console.log('pnpm install')
+            console.log('pnpm run dev')
           }
         })
       })

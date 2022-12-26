@@ -1,5 +1,3 @@
-<!-- @format -->
-
 # persagy Vue3 项目 模版生成器
 
 ## 下载
@@ -18,13 +16,6 @@ persagy-g init <项目名>
 
 ```sh
 npx persagy-generator-cli init <项目名>
-```
-
-## 选择模版类型
-
-```sh
-# 默认vite类型, 可选 vite/ webpack
-npx persagy-generator-cli init <项目名> --type webpack
 ```
 
 ## 临时指定模版 URL
